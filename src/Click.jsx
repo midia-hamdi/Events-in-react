@@ -16,8 +16,8 @@ export default class Click extends Component {
       <div>
         <p>Click count is {this.state.clickCount}</p>
         <button onClick={this.handleClick}>Click Me!</button>
-        <div>
-            <a href="https://react.dev/">React</a>
+        <div onClick={this.handleClick}>
+            <a onClick={this.handleLink} href="https://react.dev/">React</a>
         </div>
       </div>
       
@@ -33,6 +33,8 @@ export default class Click extends Component {
   }
 
   handleLink(event){
+    event.preventDefault();
+    event.stopPropagation();
     console.log('clicked');
   }
 }
